@@ -11,7 +11,7 @@ metadata:
   {{- end }}
 provisioner: rancher.io/longhorn
 parameters:
-  numberOfReplicas: "{{ .Values.persistence.defaultClassReplicaCount }}"
+  numberOfReplicas: "3"
   staleReplicaTimeout: "30"
   fromBackup: ""
   baseImage: ""
