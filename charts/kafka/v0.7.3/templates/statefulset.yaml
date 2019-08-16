@@ -30,7 +30,9 @@ spec:
 {{- end }}
 {{- if .Values.rbac.enabled }}
       serviceAccountName: {{ .Release.Name }}
-{{- end }}
+{{- end }} 
+      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
     {{- if .Values.external.enabled }}
       ## ref: https://github.com/Yolean/kubernetes-kafka/blob/master/kafka/50kafka.yml
       initContainers:
