@@ -162,7 +162,8 @@ spec:
         - -exc
         - |
           export KAFKA_BROKER_ID=${HOSTNAME##*-} && \
-          export KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://$(host `hostname` |grep "has address" | cut -d ' ' -f 4):9092{{ if kindIs "string" $advertisedListenersOverride }}{{ printf ",%s" $advertisedListenersOverride }}{{ end }} && \
+          export IP=$(host `hostname` |grep "has address" | cut -d ' ' -f 4)
+          export KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://:9092{{ if kindIs "string" $advertisedListenersOverride }}{{ printf ",%s" $advertisedListenersOverride }}{{ end }} && \
           exec /etc/confluent/docker/run
         volumeMounts:
         - name: datadir
