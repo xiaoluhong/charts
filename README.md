@@ -19,7 +19,7 @@ charts/wordpress/<app version>/
   templates/               # A directory of templates that, when combined with values.yml will generate K8s YAML
   values.yaml              # The default configuration values for this chart
 ```
-*See the upstream Helm chart [developer reference](https://docs.helm.sh/developing_charts/) for a complete walk through of developing charts.*
+*See the upstream Helm chart [developer reference](https://helm.sh/docs/topics/chart_template_guide/) for a complete walk through of developing charts.*
 
 To convert an upstream chart to take advantage of Rancher's enhanced UX, first create an `app-readme.md` file in the root of your chart.
 
@@ -68,7 +68,7 @@ The above file also provides a list of categories that this chart fits into. Thi
 | 	variable          | string  | true    |  define the variable name specified in the `values.yaml`file, using `foo.bar` for nested object. |
 | 	label             | string  | true      |  define the UI label. |
 | 	description       | string  | false      |  specify the description of the variable.|
-| 	type              | string  | false      |  default to `string` if not specified (current supported types are string, boolean, int, enum, password, storageclass and hostname).|
+| 	type              | string  | false      |  default to `string` if not specified (current supported types are string, multiline, boolean, int, enum, password, storageclass, hostname, pvc, and secret).|
 | 	required          | bool    | false      |  define if the variable is required or not (true \| false)|
 | 	default           | string  | false      |  specify the default value. |
 | 	group             | string  | false      |  group questions by input value. |
